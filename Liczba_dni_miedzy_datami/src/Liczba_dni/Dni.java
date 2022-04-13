@@ -10,17 +10,17 @@ public class Dni {
 // Deklaracja dni
 public static int styczen = 31, luty_p = 29, luty_np = 28, kwiecien = 30;
 
-static void czy_przestepny(int rok) {									//Funkcja sprawdzaj¹ca czy rok jest przestêpny
+static void czy_przestepny(int rok) {									//Funkcja sprawdzajÄ…ca czy rok jest przestÄ™pny
 if ((rok % 4 == 0) && (rok % 100 != 0) || (rok % 400 == 0)) {
 	przestepny = 1;
 } else {
 	przestepny = 0;
 }
 
-//System.out.println(rok + " Czy przestepny: " + przestepny);
+
 }
 
-static void ile_dni_w_miesiacu(int miesiac) {							//Funkcja obliczaj¹ca ile jest dni w poszczególnym miesi¹cu
+static void ile_dni_w_miesiacu(int miesiac) {							//Funkcja obliczajÄ…ca ile jest dni w poszczegÃ³lnym miesiÄ…cu
 if (miesiac == 1 || miesiac == 3 || miesiac == 5 || miesiac == 7 || miesiac == 8 || miesiac == 10
 		|| miesiac == 12) {
 	licznik = 31;
@@ -30,7 +30,7 @@ else if (miesiac == 4 || miesiac == 6 || miesiac == 9 || miesiac == 11) {
 	licznik = 30;
 }
 
-else if (miesiac == 2) {											//Definiowanie lutego w zale¿noœci czy rok jest przestêpny
+else if (miesiac == 2) {											//Definiowanie lutego w zaleÅ¼noÅ›ci czy rok jest przestÄ™pny
 	if (przestepny == 0) {											// 1 - przestepny, 0 - nie
 		licznik = 28;
 	} else if (przestepny == 1) {
@@ -40,14 +40,14 @@ else if (miesiac == 2) {											//Definiowanie lutego w zale¿noœci czy rok je
 }
 }
 
-static void caly_rok() {												//Oblicza ile dni jest w roku, uwzglêdniaj¹c lata przestêpne
-if ((miesiac_k < miesiac_p) || (miesiac_p == miesiac_k && dni_k < dni_p)) {		//Jeœli jest np rok i 4 miesi¹ce to liczymy osobno rok i osobno 4 msc
+static void caly_rok() {												//Oblicza ile dni jest w roku, uwzglÄ™dniajÄ…c lata przestÄ™pne
+if ((miesiac_k < miesiac_p) || (miesiac_p == miesiac_k && dni_k < dni_p)) {		//JeÅ›li jest np rok i 4 miesiÄ…ce to liczymy osobno rok i osobno 4 msc
 	while (rok_p < rok_k - 1) {													//dlatego (rok_k - 1)
 		czy_przestepny(rok_p);
 		sprawdzenie1 = przestepny;
 
 		czy_przestepny(rok_p + 1);
-		sprawdzenie2 = przestepny;									//Sprawdzenie warunku na obliczenie dni ca³ego roku przestêpnego.
+		sprawdzenie2 = przestepny;									//Sprawdzenie warunku na obliczenie dni caÅ‚ego roku przestÄ™pnego.
 
 		if (sprawdzenie1 == 0 && sprawdzenie2 == 0) {
 			liczba_dni = liczba_dni + 365;
@@ -73,7 +73,7 @@ if ((miesiac_k < miesiac_p) || (miesiac_p == miesiac_k && dni_k < dni_p)) {		//J
 }
 
 else {
-	while (rok_p < rok_k) {														//tutaj ju¿ po prostu rok_p < rok_k bo miesi¹c_p jest wiekszy od koncowego
+	while (rok_p < rok_k) {														//tutaj juÅ¼ po prostu rok_p < rok_k bo miesiÄ…c_p jest wiekszy od koncowego
 		czy_przestepny(rok_p);													// i jesli msc ten sam to dzien_k jest wiekszy od poczatkowego
 		sprawdzenie1 = przestepny;												// dlatego mozemy brac pod uwage caly rok
 
@@ -111,7 +111,7 @@ public static void main(String[] args) {
 
 Scanner scanner = new Scanner(System.in);
 
-System.out.println("Podaj datê pocz¹tkow¹... ");
+System.out.println("Podaj datÄ™ poczÄ…tkowÄ…... ");
 System.out.println("****************************************");
 
 while(rok_p<=0)
@@ -122,18 +122,18 @@ rok_p = scanner.nextInt();
 
 while(miesiac_p<=0 || miesiac_p>12)
 {
-System.out.println("Miesi¹c: ");
+System.out.println("MiesiÄ…c: ");
 miesiac_p = scanner.nextInt();
 }
 
 while(dni_p<=0 || dni_p>31)
 {
 	
-System.out.println("Dzieñ: ");
+System.out.println("DzieÅ„: ");
 dni_p = scanner.nextInt();
 }
 
-System.out.println("Podaj datê koñcow¹... ");
+System.out.println("Podaj datÄ™ koÅ„cowÄ…... ");
 System.out.println("****************************************");
 
 while(rok_k<=0 || rok_k<rok_p)
@@ -145,21 +145,21 @@ rok_k = scanner.nextInt();
 
 while(miesiac_k<=0 || miesiac_k>12)
 {
-System.out.println("Miesi¹c: ");
+System.out.println("MiesiÄ…c: ");
 miesiac_k = scanner.nextInt();
 }
 
 while(dni_k<=0 || dni_k>31)
 {
 	
-System.out.println("Dzieñ: ");
+System.out.println("DzieÅ„: ");
 dni_k = scanner.nextInt();
 }
 scanner.close();
 
 czy_przestepny(rok_p);
 
-if (rok_p == rok_k) {							//Rozwa¿amy ró¿ne przypadki
+if (rok_p == rok_k) {							//RozwaÅ¼amy rÃ³Å¼ne przypadki
 	if (miesiac_p == miesiac_k) {
 		liczba_dni = dni_k - dni_p;				//Obliczamy same dni
 	}
@@ -167,11 +167,11 @@ if (rok_p == rok_k) {							//Rozwa¿amy ró¿ne przypadki
 
 if (rok_p == rok_k) {
 
-	if (miesiac_p != miesiac_k) {				//Obliczamy dni w miesi¹cach
+	if (miesiac_p != miesiac_k) {				//Obliczamy dni w miesiÄ…cach
 
-		ile_dni_w_miesiacu(miesiac_p); // Sprawdzamy ile dni w miesi¹cu
-		liczba_dni = licznik - dni_p; // Obliczamy dni do koñca tego miesi¹ca
-		miesiac_p++; // Zwiêkszamy miesi¹c
+		ile_dni_w_miesiacu(miesiac_p); // Sprawdzamy ile dni w miesiÄ…cu
+		liczba_dni = licznik - dni_p; // Obliczamy dni do koÅ„ca tego miesiÄ…ca
+		miesiac_p++; // ZwiÄ™kszamy miesiÄ…c
 
 		while (miesiac_p <= miesiac_k) {
 			if (miesiac_p == miesiac_k) {
@@ -186,7 +186,7 @@ if (rok_p == rok_k) {
 
 }
 
-if (rok_p != rok_k) {							//Obliczamy ca³y rok
+if (rok_p != rok_k) {							//Obliczamy caÅ‚y rok
 	if (miesiac_p == miesiac_k) {
 		if (dni_p == dni_k) {
 			caly_rok();
@@ -197,13 +197,13 @@ if (rok_p != rok_k) {							//Obliczamy ca³y rok
 
 
 	if (((miesiac_k < miesiac_p) || (miesiac_p == miesiac_k && dni_k < dni_p)) && (rok_p != rok_k)) {			
-		caly_rok();																			// Obliczamy gdy dla daty koncowej miesi¹ce mniejsze ni¿ dla pocz¹tkowej
+		caly_rok();																			// Obliczamy gdy dla daty koncowej miesiÄ…ce mniejsze niÅ¼ dla poczÄ…tkowej
 		czy_przestepny(rok_p);																// albo dni mniejsze
 		if (miesiac_k < miesiac_p) {
-			ile_dni_w_miesiacu(miesiac_p); // Sprawdzamy ile dni w miesi¹cu
+			ile_dni_w_miesiacu(miesiac_p); // Sprawdzamy ile dni w miesiÄ…cu
 
-			liczba_dni = liczba_dni + (licznik - dni_p); // Obliczamy dni do koñca tego miesi¹ca
-			miesiac_p++; // Zwiêkszamy miesi¹c
+			liczba_dni = liczba_dni + (licznik - dni_p); // Obliczamy dni do koÅ„ca tego miesiÄ…ca
+			miesiac_p++; // ZwiÄ™kszamy miesiÄ…c
 			
 			
 
@@ -241,11 +241,11 @@ if (rok_p != rok_k) {							//Obliczamy ca³y rok
 			}
 
 		}
-	} else if (rok_p != rok_k) {							//Przypadek jeœli miesi¹c daty koncowej jest wiêkszy lub równy pocz¹tkowej
+	} else if (rok_p != rok_k) {							//Przypadek jeÅ›li miesiÄ…c daty koncowej jest wiÄ™kszy lub rÃ³wny poczÄ…tkowej
 		caly_rok();
 		czy_przestepny(rok_p);
-		ile_dni_w_miesiacu(miesiac_p); // Sprawdzamy ile dni w miesi¹cu
-		liczba_dni = liczba_dni + (licznik - dni_p); // Obliczamy dni do koñca tego miesi¹ca
+		ile_dni_w_miesiacu(miesiac_p); // Sprawdzamy ile dni w miesiÄ…cu
+		liczba_dni = liczba_dni + (licznik - dni_p); // Obliczamy dni do koÅ„ca tego miesiÄ…ca
 		miesiac_p++;
 		if (miesiac_k >= miesiac_p) {
 			caly_rok();
